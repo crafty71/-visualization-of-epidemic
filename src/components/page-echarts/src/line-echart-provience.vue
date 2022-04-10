@@ -28,7 +28,8 @@ const options: any = computed(() => {
       text: props.title,
       left: 'center',
       textStyle: {
-        color: '#000000'
+        color: '#000000',
+        fontSize: 22
       }
     },
     tooltip: {
@@ -47,7 +48,6 @@ const options: any = computed(() => {
         },
         dataView: { readOnly: false },
         magicType: { type: ['line', 'bar'] },
-        restore: {},
         saveAsImage: {}
       }
     },
@@ -99,27 +99,13 @@ const options: any = computed(() => {
         emphasis: {
           focus: 'series'
         }
-      },
-      {
-        smooth: true,
-        type: 'line',
-        emphasis: {
-          focus: 'series'
-        }
-      },
-      {
-        smooth: true,
-        type: 'line',
-        emphasis: {
-          focus: 'series'
-        }
       }
     ],
     dataZoom: [
       {
         type: 'slider',
         height: 20,
-        start: 50,
+        start: 95,
         bottom: 10,
         end: 100,
         textStyle: {

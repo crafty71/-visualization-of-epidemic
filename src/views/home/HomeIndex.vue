@@ -2,7 +2,7 @@
   <div class="HomeIndex">
     <CardList />
     <RecentLocal />
-    <el-row :gutter="10">
+    <el-row :gutter="10" style="margin-top: 10px">
       <el-col :span="12">
         <div class="MapBackGorond">
           <ExistingDiagnosis />

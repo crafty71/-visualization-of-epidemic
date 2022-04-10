@@ -1,5 +1,6 @@
 import request from '../index'
 import requestsina from '../requestSina/index'
+import requestNew from '../requestNew/index'
 
 export function getData() {
   return request.get({
@@ -41,4 +42,16 @@ export function getchinaDayList() {
 
 export function getChinaProvience() {
   return requestsina.get({})
+}
+
+export function getChinaProvienceDeatil(provience: any) {
+  return request.get({
+    url: `/query/pubished/daily/list?province=${provience}`
+  })
+}
+
+export function getProvienceNews(provience: any) {
+  return requestNew.get({
+    url: `/list?province_code=${provience}&page_size=10`
+  })
 }

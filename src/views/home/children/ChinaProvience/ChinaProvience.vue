@@ -1,5 +1,8 @@
 <template>
   <div class="ChinaProvience">
+    <h4 class="ChinaProvienceTitle">
+      Epidemic situation in China (including Hong Kong, Macao and Taiwan)
+    </h4>
     <el-table
       :data="TableData"
       style="width: 100%"
@@ -60,6 +63,13 @@
       />
       <el-table-column label="cure" prop="cureNum" align="center" sortable />
       <el-table-column label="dead" prop="deathNum" align="center" sortable />
+      <el-table-column label="Operations" align="center">
+        <template #default="scope">
+          <el-button type="text" size="small" @click="DeatilClick(scope)"
+            >Detail</el-button
+          >
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>
@@ -67,86 +77,35 @@
 <script lang="ts" setup>
 import { getChinaProvience } from '@/services/homeApi/index'
 import { onMounted, ref } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+const store = useStore()
+const router = useRouter()
 
 const TableData: any = ref([])
-const cityData: any = ref([])
 
 const getChinaProvienceData = async () => {
   const res = await getChinaProvience()
-  console.log(res.data.list[0].city)
   TableData.value = res.data.list
-  const value = res.data.list
-  for (const item of value) {
-    console.log(item.city)
-  }
+}
+
+const DeatilClick = (num: any) => {
+  router.push(`/home/provience/${num.row.ename}`)
+  store.commit('clearprovienceData')
+  store.commit('pushprovienceData', num.row)
 }
 
 onMounted(() => {
   getChinaProvienceData()
 })
-
-const tableData = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036'
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036'
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036'
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036'
-  },
-  {
-    date: '2016-05-08',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036'
-  },
-  {
-    date: '2016-05-06',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036'
-  },
-  {
-    date: '2016-05-07',
-    name: 'Tom',
-    state: 'California',
-    city: 'Los Angeles',
-    address: 'No. 189, Grove St, Los Angeles',
-    zip: 'CA 90036'
-  }
-]
 </script>
 
 <style lang="less">
 .ChinaProvience {
   margin-top: 10px;
+  .ChinaProvienceTitle {
+    font-size: 22px;
+    padding: 10px;
+  }
 }
 </style>
