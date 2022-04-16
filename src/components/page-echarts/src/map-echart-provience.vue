@@ -71,6 +71,7 @@ const options: any = computed(() => {
         },
         {
           lt: 0,
+          gte: 0,
           label: '=0',
           color: '#cccccc'
         }

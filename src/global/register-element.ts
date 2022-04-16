@@ -6,7 +6,9 @@ import {
   ElTable,
   ElTableColumn,
   ElPagination,
-  ElButton
+  ElButton,
+  ElMenu,
+  ElMenuItem
 } from 'element-plus'
 import { App } from 'vue'
 
@@ -17,7 +19,9 @@ const components = [
   ElTable,
   ElTableColumn,
   ElPagination,
-  ElButton
+  ElButton,
+  ElMenu,
+  ElMenuItem
 ]
 
 export default function (app: App) {

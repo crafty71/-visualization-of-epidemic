@@ -35,6 +35,7 @@ import xianggang from '../data/provience/香港特别行政区.json'
 import heilongjiang from '../data/provience/黑龙江省.json'
 import chongqing from '../data/provience/重庆市.json'
 import gansu from '../data/provience/甘肃省.json'
+import world from '../data/World_cn.json'
 
 const chinamap: any = chinaMapData
 const shanghaimap: any = shanghai
@@ -71,7 +72,9 @@ const xianggangmap: any = xianggang
 const heilongjiangmap: any = heilongjiang
 const chongqingmap: any = chongqing
 const gansumap: any = gansu
+const worldmap: any = world
 
+echarts.registerMap('world', worldmap)
 echarts.registerMap('china', chinamap)
 echarts.registerMap('shanghai', shanghaimap)
 echarts.registerMap('yunnan', yunnanmap)

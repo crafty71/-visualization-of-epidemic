@@ -39,31 +39,31 @@ const options: any = computed(() => {
       pieces: [
         // 根据数据大小，各省显示不同颜色
         {
-          gte: 1000,
+          gte: 10000,
           label: '>= 1000',
           color: '#de1f05'
         },
         {
-          gte: 500,
-          lt: 999,
+          gte: 5000,
+          lt: 9999,
           label: '500 - 999',
           color: '#ff2736'
         },
         {
-          gte: 100,
-          lt: 499,
+          gte: 10000,
+          lt: 4999,
           label: '100 - 499',
           color: '#ff6341'
         },
         {
-          gte: 10,
-          lt: 99,
+          gte: 100,
+          lt: 999,
           label: '10 - 99',
           color: '#ffa577'
         },
         {
-          lt: 10,
-          gte: 1,
+          lt: 100,
+          gte: 10,
           label: '1-10',
           color: '#ffe7b2'
         },
@@ -77,7 +77,7 @@ const options: any = computed(() => {
     },
     geo: {
       // 中国地图设置
-      map: 'china',
+      map: 'world',
       scaleLimit: {
         min: 1,
         max: 2

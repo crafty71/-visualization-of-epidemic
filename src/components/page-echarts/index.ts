@@ -6,6 +6,7 @@ import MapEchart from './src/map-echart.vue'
 import MapEchartsTotal from './src/map-echart-total.vue'
 import MapEchartsProvience from './src/map-echart-provience.vue'
 import LineEchartProvience from './src/line-echart-provience.vue'
+import WorldEcharts from './src/world-echarts.vue'
 
 export {
   PieEchart,
@@ -15,5 +16,6 @@ export {
   MapEchart,
   MapEchartsTotal,
   MapEchartsProvience,
-  LineEchartProvience
+  LineEchartProvience,
+  WorldEcharts
 }
